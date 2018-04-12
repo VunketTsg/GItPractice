@@ -1,0 +1,83 @@
+﻿
+@{
+    ViewBag.Title = "GetData";
+}
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>GetData</title>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <meta name="viewport" content="width=device-width" />
+    <script type="text/javascript">
+
+        $(function () {
+
+            $("#ddlCountry").change(function () {
+
+                var countryNamevalue = $("#ddlCountry").val();
+                var obj = { countryName: countryNamevalue }
+
+                $.ajax(
+                    {
+                        url: "@Url.Action("GetStates", "Address")",
+                        type: "Post",
+                        data: JSON.stringify(obj),
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        processData: true,
+                        success: function (responsedata) {
+                            $("#ddlStates").empty();
+                            $.each(responsedata, function (index, data) {
+                                $("#ddlStates").append("<option value=" + data + ">" + data)
+                            });
+                        },
+                        error: function (errormessage, xht, errorstatus) {
+                            console.log("error");
+                        }
+                    }
+
+                );
+
+            });
+            $("#btnGetcountries").click(function () {
+
+                $.ajax(
+                    {
+                        url: "@Url.Action("GetCountries", "Address")",
+                        type: "GET",
+                        success: function (responsedata) {
+
+                            $.each(responsedata, function (index, data) {
+                                $("#ddlCountry").append("<option value=" + data + ">" + data + "</option");
+
+                            });
+
+                        },
+                        error: function (errormessage, xht, errorstatus) {
+                            console.log("error");
+                        }
+                    }
+
+                );
+            });
+
+
+        });
+
+    </script>
+</head>
+<body>
+    <div>
+        Countries
+        <select id="ddlCountry"></select>
+        <input type="button" id="btnGetcountries" value="GetCounties" />
+    </div>
+    <div>
+        States
+        <select id="ddlStates"></select>
+    </div>
+</body>
+</html>
+
+
