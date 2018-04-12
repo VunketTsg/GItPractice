@@ -1,0 +1,31 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GetCalForm</title>
+</head>
+<body>
+    <form action="/Person/Add" method="post">
+       FirstNumber: @Html.TextBox("txtFirstNumber",null,new { Name="FirstNumber" ,  style ="width:80px"})
+        @*<input type="text" id="txtFirstNumber" name="FirstNumber"/>*@
+        <br/>
+SecondNumber:<input type="text" id="txtSecondNumber" name="SecondNumber" style="width:80px"/>
+<br/>
+        <input type="submit" id="btnSubmit" value="ADD"/>
+    </form>
+    <div> 
+        @*@{ 
+            for (int i=0;i<10;i++)
+            {
+                <li>@i</li>
+            }
+        }*@
+    </div>
+</body>
+</html>

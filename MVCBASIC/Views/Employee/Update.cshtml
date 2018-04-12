@@ -1,0 +1,117 @@
+﻿
+@model MVCBASIC.Models.EmployeeDetails
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Update</title>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm("Update", "Employee", FormMethod.Post))
+    {
+        <h1>@Html.Label("UPDATE Employee Details")</h1>
+        <table>
+            <tr>
+                <td>
+                    @Html.LabelFor(e => e.EmployeeID)
+                </td>
+                <td>
+                    @Html.EditorFor(e => e.EmployeeID)
+                </td>
+                <td>
+                    <input type="submit" value="Search" />
+                </td>
+            </tr>                       
+        </table>
+        <br/>
+        <br/>
+        <table>
+            
+            <tr>
+                <td>
+                    @Html.LabelFor(e => e.LastName)
+                </td>
+                <td>
+                    @Html.EditorFor(e => e.LastName)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(e => e.FirstName)
+                </td>
+                <td>
+                    @Html.EditorFor(e => e.FirstName)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(e => e.Title)
+                </td>
+                <td>
+                    @Html.EditorFor(e => e.Title)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(e => e.TitleOfCourtesy)
+                </td>
+                <td>
+                    @Html.EditorFor(e => e.TitleOfCourtesy)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(e => e.DoB)
+                </td>
+                <td>
+                    @Html.EditorFor(e => e.DoB)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(e => e.HireDate)
+                </td>
+                <td>
+                    @Html.EditorFor(e => e.HireDate)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(e => e.Country)
+                </td>
+                <td>
+                    @Html.DropDownListFor(e => e.Country, new List<SelectListItem> {
+
+                   new SelectListItem{Text="India",Value="India"},
+                   new SelectListItem{Text="USA",Value="USA"},
+                   new SelectListItem{Text="UK", Value="UK"}
+
+               })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(e => e.HomePhone)
+                </td>
+                <td>
+                    @Html.EditorFor(e => e.HomePhone)
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Update" />
+                </td>
+            </tr>
+
+        </table>
+}
+    </div>
+</body>
+</html>

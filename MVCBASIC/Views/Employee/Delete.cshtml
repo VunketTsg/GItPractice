@@ -1,0 +1,27 @@
+﻿@model MVCBASIC.Models.EmployeeDetails
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm("Delete", "EmployeeDetails", FormMethod.Post))
+        {
+        <h1>@Html.Label("UPDATE Employee Details")</h1>
+           @Html.LabelFor(e =>e.EmployeeID)
+            @Html.TextBoxFor(e =>e.EmployeeID)
+            
+            <input type="submit" value="Delete"/>
+
+
+        }
+    </div>
+</body>
+</html>

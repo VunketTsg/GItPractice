@@ -1,0 +1,210 @@
+﻿@model MVCBASIC.Models.Register
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    @{
+        var MyList = new List<SelectListItem>()
+{
+    new SelectListItem(){Value="1", Text ="India"},
+    new SelectListItem(){Value="2", Text = "USA"},
+    new SelectListItem(){Value="3", Text = "UK"}
+};
+    }
+
+    @using (Html.BeginForm("Index", "Person", FormMethod.Post))
+    {
+      <h1>  @Html.Label("HTML HELPERS")</h1>
+        <table>
+            <tr>
+                <td>
+                    @Html.Label("UserName")
+                </td>
+                <td>
+                    @Html.TextBox("UserName")
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.Label("UserPhone")
+                </td>
+                <td>
+                    @Html.TextBox("UserPhone")
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.Label("UserEmail")
+                </td>
+                <td>
+                    @Html.TextBox("UserEmail")
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.Label("UserPassword")
+                </td>
+                <td>
+                    @Html.Password("UserPassword")
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    @Html.Label("Gender")
+                </td>
+                <td>
+                    @Html.Label("Male")
+                    @Html.RadioButton("Male", new { value = "Male" })
+                    @Html.Label("Female")
+                    @Html.RadioButton("Female", new { value = "Female" })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.Label("UserCountry")
+                </td>
+                <td>
+                    @Html.DropDownList("UserCountry", MyList)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.Label("UserTerms")
+                </td>
+                <td>
+                    @Html.CheckBox("UserTerms")
+                </td>
+            </tr>
+
+            @*<tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" value="Submit" />
+                    </td>
+                </tr>*@
+        </table>
+
+        <h1>@Html.Label("Strongly typed HTML Helpers")</h1>
+        <table>
+            <tr>
+                <td>
+                    @Html.LabelFor(m => m.Name)
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.Name)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(m => m.Phone)
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.Phone)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(m => m.Email)
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.Email)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(m => m.Password)
+                </td>
+                <td>
+                    @Html.PasswordFor(m => m.Password)
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    @Html.Label("Gender")
+                </td>
+                <td>
+                    @Html.Label("Male")
+                    @Html.RadioButtonFor(m => m.Gender, "Male", new { value = "Male" })
+                    @Html.Label("Female")
+                    @Html.RadioButtonFor(m => m.Gender, "Female", new { value = "Female" })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(m => m.Country)
+                </td>
+                <td>
+                    @Html.DropDownListFor(m => m.Country, MyList)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(m => m.Terms)
+                </td>
+                <td>
+                    @Html.CheckBoxFor(m => m.Terms)
+                </td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Submit" />
+                </td>
+            </tr>
+        </table>
+
+        <h1>@Html.Label("Display Data Below")</h1>
+
+        if (Model != null)
+        {
+            <table>
+                <tr>
+                    <td>
+                        Name:
+                    </td>
+                    <td>
+                        @Model.Name
+                    </td>
+                </tr>
+                <tr>
+                    <td>Phone:</td>
+                    <td>@Model.Phone</td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td>@Model.Email</td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td>@Model.Password</td>
+                </tr>
+                <tr>
+                    <td>Gender:</td>
+                    <td>@Model.Gender</td>
+                </tr>
+                <tr>
+                    <td>Country:</td>
+                    <td>@Model.Country</td>
+                </tr>
+                <tr>
+                    <td>Terms:</td>
+                    <td>@Model.Terms</td>
+                </tr>
+            </table>
+        }
+    }
+
+</body>
+</html>

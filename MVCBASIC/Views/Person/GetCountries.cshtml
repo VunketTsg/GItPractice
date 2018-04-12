@@ -1,0 +1,37 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GetCountries</title>
+</head>
+<body>
+    
+    <form action="/" method="post">
+
+
+
+        Countries: @Html.DropDownList("ddlcountry", ViewData["ListCountries2"] as IEnumerable<SelectListItem>)
+        <br/>
+
+        <select>
+            <option value="Select">Select</option>
+            @{
+                List<string> lst = (List<string>)ViewData["ListCountries"];
+                foreach (var item in lst)
+                {
+                    <option value="@item">@item</option>
+                }
+            }
+        </select>
+
+    </form>
+       
+    
+</body>
+</html>

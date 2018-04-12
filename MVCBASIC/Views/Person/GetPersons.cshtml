@@ -1,0 +1,32 @@
+﻿
+@model IEnumerable<MVCBASIC.Controllers.PersonViewModel>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GetPersons</title>
+</head>
+<body>
+    
+        <table border="1">
+            <tr>
+                <td>id</td>
+                <td>Name</td>
+                <td>Email</td>
+            </tr>
+            @foreach(var person in Model)
+            {
+            <tr>
+                <td>@person.id</td>
+                <td>@person.UserName</td>
+                <td>@person.Email</td>
+            </tr>
+            }
+        </table>
+</body>
+</html>

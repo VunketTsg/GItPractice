@@ -1,0 +1,73 @@
+﻿
+@model MVCBASIC.Models.EmployeeDetails
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Registration</title>
+</head>
+<body>
+    <div>
+        @{
+        var MyList = new List<SelectListItem>()
+{
+new SelectListItem(){Value="1", Text ="India"},
+new SelectListItem(){Value="2", Text = "USA"},
+new SelectListItem(){Value="3", Text = "UK"}
+};
+        }
+        @using (Html.BeginForm("Registration", "EmployeeDetails", FormMethod.Post))
+    {
+        <h1>@Html.Label("Registration Page")</h1>
+
+        <table>
+            <tr>
+                <td>@Html.LabelFor(s => s.FirstName)</td>
+                <td>@Html.TextBoxFor(s => s.FirstName)</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(s => s.LastName)</td>
+                <td>@Html.TextBoxFor(s => s.LastName)</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(s => s.Country)</td>
+                <td>@Html.DropDownListFor(s => s.Country, MyList)</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(s => s.Gender)</td>
+                <td>
+                    Male  @Html.RadioButtonFor(s => s.Gender, "Male")
+                    Female @Html.RadioButtonFor(s => s.Gender, "Female")
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Student :@Html.CheckBoxFor(s => s.Contract)</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(s => s.Address)</td>
+                <td>@Html.TextAreaFor(s => s.Address)</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(s => s.DoB)</td>
+                <td>@Html.EditorFor(s => s.DoB)</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Submit" />
+                </td>
+            </tr>
+        </table>
+
+
+
+}
+    </div>
+</body>
+</html>
