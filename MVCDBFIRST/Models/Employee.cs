@@ -11,7 +11,8 @@ namespace MVCDBFIRST.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Employee
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,19 +21,31 @@ namespace MVCDBFIRST.Models
             this.Employees1 = new HashSet<Employee>();
             this.Territories = new HashSet<Territory>();
         }
-    
+
+        
         public int EmployeeID { get; set; }
+        [Required]
         public string LastName { get; set; }
+        [Required]
         public string FirstName { get; set; }
+        [Required]
         public string Title { get; set; }
+        [Required]
         public string TitleOfCourtesy { get; set; }
+       
         public Nullable<System.DateTime> BirthDate { get; set; }
         public Nullable<System.DateTime> HireDate { get; set; }
+        [Required]
         public string Address { get; set; }
+        [Required]
         public string City { get; set; }
+        [MaxLength(5)]
         public string Region { get; set; }
+        [MaxLength(5)]
         public string PostalCode { get; set; }
+        [Required]
         public string Country { get; set; }
+        [Phone]
         public string HomePhone { get; set; }
         public string Extension { get; set; }
         public byte[] Photo { get; set; }
